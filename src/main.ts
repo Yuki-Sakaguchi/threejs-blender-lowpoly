@@ -4,7 +4,7 @@ import { Scene, WebGLRenderer, PerspectiveCamera, Group, DirectionalLight } from
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-import model from './assets/island.gltf?url';
+import model from './assets/island.glb?url';
 let island: Group;
 
 let scene = new Scene();
@@ -14,8 +14,6 @@ camera.position.z = 5;
 camera.position.y = 1;
 
 const directionalLight = new DirectionalLight(0xFFFFFF, 0.7);
-directionalLight.castShadow = true;
-directionalLight.shadow.mapSize.set(4096, 4096);
 scene.add(directionalLight);
 
 let renderer = new WebGLRenderer({
@@ -25,7 +23,6 @@ let renderer = new WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0x000000, 0);
 renderer.physicallyCorrectLights = true;
-renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -35,8 +32,6 @@ const gltfLoader = new GLTFLoader();
 gltfLoader.load(model, (data) => {
   island = data.scene;
   island.scale.set(0.5, 0.5, 0.5);
-  island.castShadow = true;
-  island.receiveShadow = true;
   scene.add(island);
 });
 
