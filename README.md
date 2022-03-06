@@ -1,6 +1,9 @@
 # threejs-blender-lowpoly
 Udemyを参考にBlenderで作ったglTFファイルをthree.jsで表示する
 
+## demo
+https://yuki-sakaguchi.github.io/threejs-blender-lowpoly/dist/
+
 https://user-images.githubusercontent.com/16290220/156925001-de666f4f-5f40-4f91-a67b-668216394176.mov
 
 
